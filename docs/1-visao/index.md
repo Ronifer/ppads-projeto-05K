@@ -39,7 +39,7 @@ esperadas do sistema.
 
 ## Funcionalidades do produto
 
-* Busca de Proditos
+* Busca de Produtos
 * Filtros para ordenação
 * Cadastro de usuario
 * Cadastro de ofertas
@@ -60,9 +60,8 @@ esperadas do sistema.
 
 ![](proto1.png)
 
-Fonte: Exemplos gerados pelo assistente do **Enterprise Architect**.
 
-### Protótipos para funcionalidade 2
+### Protótipos para funcionalidade 4, 6
 
 ![](proto2.png)
 
