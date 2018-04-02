@@ -1,63 +1,58 @@
-# Documento de Visão do Projeto "NOME DO PROJETO"
+# Documento de Visão do Projeto EASY MARKET
 
-Este documento apresenta uma solução de software para o projeto *"NOME DO PROJETO"*, solicitado pelo cliente *"NOME DO CLIENTE"*, 
+Este documento apresenta uma solução de software para o projeto *"EASY MARKET"*.
 apresentando os problemas a serem solucionados, as necessidades dos principais envolvidos, o alcance do projeto e as funcionalidades 
 esperadas do sistema.
 
 ## Objetivos
 
-* Objetivo 1
-* Objetivo 2
-* Objetivo 3
-* etc.
+* Facilitar as idas ao mercado.
+* Locallizar as melhores ofertas, de forma rápida e pratica.
+* Criar Uma rede de colaboração de ofertas, fazendo com que os proprios usuarios se engajem para a alimentação do banco de dados do projeto.
 
 ## Problema
 
-* Descrição do problema: ___
-* Quem é afetado pelo problema: ____
-* Impacto no negócio: ___
-* Benefícios de uma boa solução: ___
+* Descrição do problema: Falta de uma plataforma onde podemos comparar os preções de diferentes mercados da minha região, com informações atualizadas e seguras, sugeridas pelos próprios usuarios.
+* Quem é afetado pelo problema: Responsaveis pelas compras da casa.
+* Impacto no negócio: Consumiidores em geral
+* Benefícios de uma boa solução: Diminuição dos preços, melhores ofertas.
 
 ## Definições, abreviações e outros termos do domínio do problema
 
-* Definição 1
-* Definição 2
-* Definição 3
-* etc.
+* Ofertas: preços mais baixos que o comum.
+* Proços: valor do produto
+* Mercado: loja de produtos.
 
 ## Integração com outros sistemas
 
-* Sistema externo 1
-* Sistema externo 2
-* Sistema externo 3
-* etc.
+* Firebase: sistema de autenticação.
  
 ## Interessados
 
-* Tipo de interessado 1
-* Tipo de interessado 2
-* Tipo de interessado 3
-* etc.
+* Consumidores em geral.
+* Aficcionados por ofertas.
+
 
 ## Usuários
 
-* Tipo de usuário 1
-* Tipo de usuário 2
-* Tipo de usuário 3
-* etc.
+* Usuario Comum, sem necessidade de conhecimentos tecnicos.
 
 ## Funcionalidades do produto
 
-* Funcionalidade 1
-* Funcionalidade 2
-* etc.
+* Busca de Proditos
+* Filtros para ordenação
+* Cadastro de usuario
+* Cadastro de ofertas
+* Feedback das ofertas
+* Geolocalização (para identificar os mercados mais proximos)
+* Login com redes Sociais (Facebook, Twitter, Google)
+
 
 ## Restrições do projeto
 
-* Restrição 1
-* Restrição 2
-* Restrição 3
-* etc.
+* O Aplicativo será exclusivo para plataformas mobile (IOS e Android)
+* Será Necessario um cadastro de usuario
+* Acesso a Internet
 
 ## Protótipos de tela
 
