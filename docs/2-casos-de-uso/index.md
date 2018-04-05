@@ -37,5 +37,28 @@
 |---|
 | 1) O usuario **Marca Oferta como vencida**. |
 
+**Login**
+
+![Use Case Busca de Ofertas](login.png)
+
+## 2. Especificação dos casos de uso
 
 
+### 2.1. Caso de uso **Busca de Ofertas**
+
+| Campo          | Informação        |
+|---|---|
+| Identificador: | UC02              |
+| Nome:          | Login de Usuario |
+| Atores:        | Usuarios |
+| Sumário:       | Realiza a autenticação do usuario no sistema |
+
+| Fluxo Principal |
+|---|
+| 1) O usuario **Solicita o Login** informando seus dados de email e senha. |
+| 2) O sistema realizará a pesquisa do usuario na base.                   |
+
+| Fluxo Alternativo (2a): O sistema não encontra as informações usuario. |
+|---|
+| 1) O sistema informa que não conseguiu recuperar as informações do usuario. |
+| 2) O usuario seleciona a opção para realizar **Registrar-se** informando seus dados pessoais. |
