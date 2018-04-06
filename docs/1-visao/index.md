@@ -60,11 +60,10 @@ esperadas do sistema.
 
 ![](proto1.png)
 
-
 ### Protótipos para funcionalidade 4, 6
 
 ![](proto2.png)
 
-Fonte: Exemplos gerados pelo assistente do **Enterprise Architect**.
+### Protótipos para funcionalidade 7
 
-### Protótipos para funcionalidade N
+![](login.png)
