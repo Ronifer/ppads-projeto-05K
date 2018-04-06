@@ -56,7 +56,7 @@ esperadas do sistema.
 
 ## Protótipos de tela
 
-### Protótipos para funcionalidade 1
+### Protótipos para funcionalidade 1, 2
 
 ![](proto1.png)
 
@@ -67,3 +67,11 @@ esperadas do sistema.
 ### Protótipos para funcionalidade 7
 
 ![](login.png)
+
+### Protótipos para funcionalidade 3
+
+![](complete.png)
+
+### Protótipos para funcionalidade 5
+
+![](produto.png)
