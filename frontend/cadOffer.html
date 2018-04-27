@@ -57,7 +57,7 @@
             <nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute fixed-top">
                 <div class="container-fluid">
                     <div class="navbar-wrapper">
-                        <a class="navbar-brand" href="#pablo">Principais Ofertas</a>
+                        <a class="navbar-brand" href="#pablo"></a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -116,78 +116,68 @@
             <!-- End Navbar -->
             <div class="content">
                 <div class="container-fluid">
-                    <div class="input-group" style="
-                    width: 100%;
-                    padding-right: 15px;
-                    padding-left: 15px;
-                    margin-right: auto;
-                    margin-left: auto;
-                ">
-                        <input type="text" value="" class="form-control" placeholder="Oque você está procurando" style="
-                        background: #fff;
-                        border-radius: 7px;
-                        padding: 3%;
-                        box-sizing: border-box;
-                    ">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-header card-header-primary">
+                                    <h4 class="card-title">Nova Oferta</h4>
+                                    <p class="card-category">Nos diga mais detalhes :)</p>
+                                </div>
+                                <div class="card-body">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Nome Do Produto</label>
+                                                    <input type="text" id="nomeProduto" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Preço</label>
+                                                    <input type="number" id="preco" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Descrição do Produto</label>
+                                                    <textarea class="form-control" name="descricao" id="descricaoProd" cols="3" rows="3"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Descrição da Oferta</label>
+                                                    <textarea class="form-control" name="descricao" id="descricaoOfer" cols="3" rows="3"></textarea>
+                                                </div>
+                                            </div>
 
-                    </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                                <div class="btn-group bootstrap-select show-tick">
+                                                    <button type="button" class="dropdown-toggle bs-placeholder btn select-with-transition" data-toggle="dropdown" role="button"
+                                                        title="Choose City">
+                                                        <span class="filter-option pull-left" id="labelMarket">Qual Mercado?</span>&nbsp;
+                                                        <span class="bs-caret">
+                                                            <span class="caret"></span>
+                                                        </span>
+                                                        <div class="ripple-container">
+                                                            <div class="ripple-decorator ripple-on ripple-out" style="left: 1016px; top: 446px; background-color: rgb(60, 72, 88); transform: scale(21.1445);"></div>
+                                                        </div>
+                                                    </button>
+                                                    <div class="dropdown-menu open" role="combobox">
+                                                        <ul class="dropdown-menu inner" role="listbox" aria-expanded="false" id="listaMercados">
+                                                        </ul>
+                                                    </div>
 
-                    <div class="container-fluid">
-                        <div class="card card-plain">
-                            <div class="card-header card-header-info">
-                                <h4 class="card-title">Leite Desnatado</h4>
-                                <p class="card-category">Vigor 1L</p>
-                                <p class="card-category">
-                                    <bold style="color: #fff;font-weight: 500;">R$ 2,25</bold>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container-fluid">
-                        <div class="card card-plain">
-                            <div class="card-header card-header-success">
-                                <h4 class="card-title">Alface Lisa</h4>
-                                <p class="card-category">1 Maço</p>
-                                <p class="card-category">
-                                    <bold style="color: #fff;font-weight: 500;">R$ 0,75</bold>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button class="btn btn-danger btn-float btn-round btn-fab" style="
-                    position: absolute;
-                    z-index: 10001;
-                    right: 5%;
-                    width: 60px;
-                    height: 60px;
-                    bottom: 10%;
-                " onclick="cadNewOffer()">
-                        <i class="material-icons" style="margin-top: 10px;">add</i>
-                        <div class="ripple-container"></div>
-                    </button>
+                                                </div>
+                                            </div>
 
 
+                                        </div>
 
-                    <div class="container-fluid">
-                        <div class="card card-plain">
-                            <div class="card-header card-header-success">
-                                <h4 class="card-title">Abobora</h4>
-                                <p class="card-category">Unidaed</p>
-                                <p class="card-category">
-                                    <bold style="color: #fff;font-weight: 500;">R$ 5,75</bold>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container-fluid">
-                        <div class="card card-plain">
-                            <div class="card-header card-header-warning">
-                                <h4 class="card-title">Cadeira de Praia</h4>
-                                <p class="card-category">1</p>
-                                <p class="card-category">
-                                    <bold style="color: #fff;font-weight: 500;">R$ 40,00</bold>
-                                </p>
+                                        <input type="button" onclick="cadastraOferta()" class="btn btn-primary pull-right" value="Cadastrar :)" />
+                                        <div class="clearfix"></div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -204,6 +194,10 @@
         </footer>
     </div>
     </div>
+
+
+
+
 
 
 </body>
@@ -232,23 +226,97 @@
         location.href = "cadOffer.html"
     }
 
+    function selectOptionMarket(id, name) {
+        $("#labelMarket").html(name)
+        localStorage.setItem("opcaoSlecionada", id)
+    }
+
+    function cadastraOferta() {
+        let user = JSON.parse(localStorage.getItem("user"))
+
+        let title = $('#nomeProduto').val()
+        let preco = $('#preco').val()
+        let descricaoProd = $("#descricaoProd").val()
+        let descricaoOfer = $("#descricaoOfer").val()
+
+        let objrequest = JSON.stringify({
+            title: title,
+            price: preco,
+            descProd: descricaoProd,
+            descricaoOfer: descricaoOfer,
+            user_id: user.id,
+            market_id: localStorage.getItem("opcaoSlecionada")
+        })
+
+
+        console.log(objrequest)
+        $.ajax({
+            type: "POST",
+            cache: false,
+            url: "http://localhost:5000/api/promotions",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: objrequest,
+            success: function (resp) {
+                console.log(resp)
+                $.notify({
+                    icon: "notifications",
+                    message: "Promoção Cadastrada com Sucesso"
+
+                }, {
+                        type: 'success',
+                        timer: 3000,
+                        placement: {
+                            from: 'top',
+                            align: 'center'
+                        }
+                    });
+                localStorage.removeItem("opcaoSlecionada")
+
+                setInterval(function(){ location.href = "home.html"; }, 3000);
+                
+                // localStorage.setItem("user", JSON.stringify(resp));
+                // location.href = "home.html"
+            }
+        })
+    }
+
+    function loadMarkets() {
+        $.ajax({
+            type: "GET",
+            cache: false,
+            url: "http://localhost:5000/api/markets",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (markets) {
+                console.log(markets)
+                markets.map(mkt => {
+                    $('#listaMercados').append(`
+                    <li data-original-index="0" onclick="selectOptionMarket(${mkt.id}, '${mkt.title}')">
+                        <a tabindex="-1" class="" data-tokens="null" role="option" href="#"
+                            aria-disabled="true" aria-selected="false">
+                            <span class="text"> ${mkt.title}</span>
+                            
+                        </a>
+                    </li>
+                `)
+                })
+
+
+            }
+        })
+    }
+
 
     $(document).ready(function () {
-        let user = JSON.parse(localStorage.getItem("user"))
-        $.notify({
-            icon: "notifications",
-            message: "Bem Vindo " + user.name
+        loadMarkets()
 
-        }, {
-                type: 'success',
-                timer: 3000,
-                placement: {
-                    from: 'top',
-                    align: 'center'
-                }
-            });
     })
+
+
 </script>
+
+
 <!--
 
 

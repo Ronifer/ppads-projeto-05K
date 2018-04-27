@@ -23,5 +23,11 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->post('users/auth', ['uses' => 'UserController@authenticate']);
     $router->delete('users/{id}', ['uses' => 'UserController@delete']);
     $router->put('users/{id}', ['uses' => 'UserController@update']);  
-  
+    
+    $router->get('markets',  ['uses' => 'MarketsController@showAllMarkets']);
+
+    $router->post('promotions',  ['uses' => 'PromotionsController@create']);
+
+
+    
   });
