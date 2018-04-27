@@ -57,7 +57,7 @@ class UserController extends Controller
 
          
   
-        $user = User::where('email', $request->input('email'))->with('role')->first();
+        $user = User::where('email', $request->input('email'))->first();
 
   
         if(Hash::check($request->input('password'), $user->password)){
