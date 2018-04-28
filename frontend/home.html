@@ -131,67 +131,25 @@
                     ">
 
                     </div>
-
-                    <div class="container-fluid">
-                        <div class="card card-plain">
-                            <div class="card-header card-header-info">
-                                <h4 class="card-title">Leite Desnatado</h4>
-                                <p class="card-category">Vigor 1L</p>
-                                <p class="card-category">
-                                    <bold style="color: #fff;font-weight: 500;">R$ 2,25</bold>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container-fluid">
-                        <div class="card card-plain">
-                            <div class="card-header card-header-success">
-                                <h4 class="card-title">Alface Lisa</h4>
-                                <p class="card-category">1 Maço</p>
-                                <p class="card-category">
-                                    <bold style="color: #fff;font-weight: 500;">R$ 0,75</bold>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button class="btn btn-danger btn-float btn-round btn-fab" style="
-                    position: absolute;
-                    z-index: 10001;
-                    right: 5%;
-                    width: 60px;
-                    height: 60px;
-                    bottom: 10%;
-                " onclick="cadNewOffer()">
-                        <i class="material-icons" style="margin-top: 10px;">add</i>
-                        <div class="ripple-container"></div>
-                    </button>
-
-
-
-                    <div class="container-fluid">
-                        <div class="card card-plain">
-                            <div class="card-header card-header-success">
-                                <h4 class="card-title">Abobora</h4>
-                                <p class="card-category">Unidaed</p>
-                                <p class="card-category">
-                                    <bold style="color: #fff;font-weight: 500;">R$ 5,75</bold>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container-fluid">
-                        <div class="card card-plain">
-                            <div class="card-header card-header-warning">
-                                <h4 class="card-title">Cadeira de Praia</h4>
-                                <p class="card-category">1</p>
-                                <p class="card-category">
-                                    <bold style="color: #fff;font-weight: 500;">R$ 40,00</bold>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
+
+                <div id="mainContent" style="display: grid;">
+                    <img src="assets/img/loading.gif" style="margin: 15% auto" id="loading"/>
+                </div>
+
+
+
+                <button class="btn btn-danger btn-float btn-round btn-fab" style="
+                position: absolute;
+                z-index: 10001;
+                right: 5%;
+                width: 60px;
+                height: 60px;
+                bottom: 10%;
+            " onclick="cadNewOffer()">
+                    <i class="material-icons" style="margin-top: 10px;">add</i>
+                    <div class="ripple-container"></div>
+                </button>
             </div>
             <footer class="footer ">
                 <div class="copyright pull-right">
@@ -233,10 +191,45 @@
     }
 
 
+    function listarPromocoes() {
+        $.ajax({
+            type: "GET",
+            cache: false,
+            url: "http://localhost:5000/api/promotions",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (promotions) {
+                $('#mainContent').css("display", "")
+                $('#loading').css("display", "none")
+                
+                console.log(promotions)
+
+                promotions.map(prom => {
+                    $('#mainContent').append(`
+                    <div class="container-fluid">
+                        <div class="card card-plain">
+                            <div class="card-header card-header-${prom.product.category}">
+                                <h4 class="card-title">${prom.product.title}</h4>
+                                <p class="card-category">${prom.market.title}</p>
+                                <p class="card-category">
+                                    <bold style="color: #fff;font-weight: 500;">R$ ${prom.price}</bold>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    `)
+                })
+                
+            }
+        })
+    }
+
+
     $(document).ready(function () {
+        listarPromocoes()
         let user = JSON.parse(localStorage.getItem("user"))
         $.notify({
-            icon: "notifications",
+            icon: "person",
             message: "Bem Vindo " + user.name
 
         }, {

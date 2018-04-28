@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Models\User;
 use App\Http\Models\Promotions;
 use App\Http\Models\Products;
-use App\Http\Models\Marketsz;
+use App\Http\Models\Markets;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
@@ -17,10 +17,21 @@ class PromotionsController extends Controller
     //     return response()->json(User::all());
     // }
 
-    // public function showOneUser($id)
-    // {
-    //     return response()->json(User::with('role')->findOrFail($id));
-    // }
+    public function getPromotions()
+    {
+        $promotions = Promotions::all()->toArray();
+        $return = array();
+        foreach($promotions as $prom){
+            $product = Products::where('id', '=', $prom['product_id'])->firstOrFail();
+            $market = Markets::where('id', '=', $prom['market_id'])->firstOrFail();
+            $user = User::where('id', '=', $prom['created_by'])->firstOrFail();
+            $prom['product'] = $product;
+            $prom['market'] = $market;
+            $prom['created_by_user'] = $user;
+            array_push($return, $prom);
+        } 
+        return response()->json($return);
+    }
 
     public function create(Request $request)
     {
