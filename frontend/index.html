@@ -56,6 +56,7 @@
                                         </div>
 
                                         <input type="button" onclick="logar()" class="btn btn-primary pull-right" value="Entrar" />
+                                        <input type="button" onclick="location.href='register.html'" class="btn btn-secundary pull-right" value="Cadastre-se" />
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>
@@ -118,6 +119,20 @@
                     console.log(resp)
                     localStorage.setItem("user", JSON.stringify(resp));
                     location.href = "home.html"
+                },
+                error: function (err) {
+                    $.notify({
+                        icon: "person",
+                        message: "Usuario Não cadastrado"
+
+                    }, {
+                            type: 'danger',
+                            timer: 3000,
+                            placement: {
+                                from: 'top',
+                                align: 'center'
+                            }
+                        });
                 }
             })
         }

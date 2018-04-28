@@ -120,105 +120,30 @@
                         <div class="col-md-8">
                             <div class="card">
                                 <div class="card-header card-header-primary">
-                                    <h4 class="card-title">Nova Oferta</h4>
-                                    <p class="card-category">Nos diga mais detalhes :)</p>
+                                    <h4 class="card-title">Registre-se</h4>
+                                    <p class="card-category">Junte-se a nós :)</p>
                                 </div>
                                 <div class="card-body">
                                     <form>
                                         <div class="row">
                                             <div class="col-md-5">
                                                 <div class="form-group">
-                                                    <label class="bmd-label-floating">Nome Do Produto</label>
-                                                    <input type="text" id="nomeProduto" class="form-control">
+                                                    <label class="bmd-label-floating">Qual seu Nome?</label>
+                                                    <input type="text" id="name" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label class="bmd-label-floating">Preço</label>
-                                                    <input type="number" id="preco" class="form-control">
+                                                    <label class="bmd-label-floating">Seu E-Mail:</label>
+                                                    <input type="email" id="email" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label class="bmd-label-floating">Descrição do Produto</label>
-                                                    <textarea class="form-control" name="descricao" id="descricaoProd" cols="3" rows="3"></textarea>
+                                                    <label class="bmd-label-floating">Sua Senha:</label>
+                                                    <input type="password" id="password" class="form-control">
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="bmd-label-floating">Descrição da Oferta</label>
-                                                    <textarea class="form-control" name="descricao" id="descricaoOfer" cols="3" rows="3"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <label class="bmd-label-floating">Mercado</label>
-                                                <div class="">
-                                                    <div class="btn-group bootstrap-select show-tick">
-                                                        <button type="button" class="dropdown-toggle bs-placeholder btn select-with-transition" data-toggle="dropdown" role="button"
-                                                            title="Choose City">
-                                                            <span class="filter-option pull-left" id="labelMarket">Qual Mercado?</span>&nbsp;
-                                                            <span class="bs-caret">
-                                                                <span class="caret"></span>
-                                                            </span>
-                                                            <div class="ripple-container">
-                                                                <div class="ripple-decorator ripple-on ripple-out" style="left: 1016px; top: 446px; background-color: rgb(60, 72, 88); transform: scale(21.1445);"></div>
-                                                            </div>
-                                                        </button>
-                                                        <div class="dropdown-menu open" role="combobox">
-                                                            <ul class="dropdown-menu inner" role="listbox" aria-expanded="false" id="listaMercados">
-                                                            </ul>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <label class="bmd-label-floating">Categorias</label>
-                                                <div class="">
-                                                    <div class="btn-group bootstrap-select show-tick">
-                                                        <button type="button" class="dropdown-toggle bs-placeholder btn select-with-transition" data-toggle="dropdown" role="button"
-                                                            title="Choose City">
-                                                            <span class="filter-option pull-left" id="labelCategory">Qual a Categoria</span>&nbsp;
-                                                            <span class="bs-caret">
-                                                                <span class="caret"></span>
-                                                            </span>
-                                                            <div class="ripple-container">
-                                                                <div class="ripple-decorator ripple-on ripple-out" style="left: 1016px; top: 446px; background-color: rgb(60, 72, 88); transform: scale(21.1445);"></div>
-                                                            </div>
-                                                        </button>
-                                                        <div class="dropdown-menu open" role="combobox">
-                                                            <ul class="dropdown-menu inner" role="listbox" aria-expanded="false" id="listaMercados">
-                                                                <li data-original-index="0" onclick="selectOptionCategory('success', 'Verduras')">
-                                                                    <a tabindex="-1" class="" data-tokens="null" role="option" href="#" aria-disabled="true" aria-selected="false">
-                                                                        <span class="text">Verduras</span>
-
-                                                                    </a>
-                                                                </li>
-                                                                <li data-original-index="0" onclick="selectOptionCategory('info', 'Limpeza')">
-                                                                    <a tabindex="-1" class="" data-tokens="null" role="option" href="#" aria-disabled="true" aria-selected="false">
-                                                                        <span class="text">Limpeza</span>
-
-                                                                    </a>
-                                                                </li>
-                                                                <li data-original-index="0" onclick="selectOptionCategory('danger', 'Carnes')">
-                                                                    <a tabindex="-1" class="" data-tokens="null" role="option" href="#" aria-disabled="true" aria-selected="false">
-                                                                        <span class="text">Carnes</span>
-
-                                                                    </a>
-                                                                </li>
-                                                                <li data-original-index="0" onclick="selectOptionCategory('warning', 'Não Pereciveis')">
-                                                                    <a tabindex="-1" class="" data-tokens="null" role="option" href="#" aria-disabled="true" aria-selected="false">
-                                                                        <span class="text">Não Pereciveis</span>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
                                         </div>
 
                                         <input type="button" onclick="cadastraOferta()" class="btn btn-primary pull-right" value="Cadastrar :)" />
@@ -278,29 +203,15 @@
         localStorage.setItem("opcaoSlecionada", id)
     }
 
-     function selectOptionCategory(id, name) {
-        $("#labelCategory").html(name)
-        localStorage.setItem("opcaoSlecionadaCategory", id)
-    }
-
-    
-
     function cadastraOferta() {
-        let user = JSON.parse(localStorage.getItem("user"))
-
-        let title = $('#nomeProduto').val()
-        let preco = $('#preco').val()
-        let descricaoProd = $("#descricaoProd").val()
-        let descricaoOfer = $("#descricaoOfer").val()
+        let name = $('#name').val()
+        let password = $('#password').val()
+        let email = $("#email").val()
 
         let objrequest = JSON.stringify({
-            title: title,
-            price: preco,
-            descProd: descricaoProd,
-            descricaoOfer: descricaoOfer,
-            user_id: user.id,
-            market_id: localStorage.getItem("opcaoSlecionada"),
-            category: localStorage.getItem("opcaoSlecionadaCategory")
+            email: email,
+            password: password,
+            name: name,
         })
 
 
@@ -308,7 +219,7 @@
         $.ajax({
             type: "POST",
             cache: false,
-            url: "http://localhost:5000/api/promotions",
+            url: "http://localhost:5000/api/users",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             data: objrequest,
@@ -316,7 +227,7 @@
                 console.log(resp)
                 $.notify({
                     icon: "notifications",
-                    message: "Promoção Cadastrada com Sucesso"
+                    message: "Usuario cadastrado com sucesso"
 
                 }, {
                         type: 'success',
@@ -326,13 +237,12 @@
                             align: 'center'
                         }
                     });
-                localStorage.removeItem("opcaoSlecionada")
-                localStorage.removeItem("opcaoSlecionadaCategory")
+                //localStorage.removeItem("opcaoSlecionada")
 
-                setInterval(function () { location.href = "home.html"; }, 3000);
-
+                //setInterval(function(){ location.href = "home.html"; }, 3000);
+                
                 // localStorage.setItem("user", JSON.stringify(resp));
-                // location.href = "home.html"
+                setInterval(function(){ location.href = "index.html"; }, 3000);
             }
         })
     }

@@ -38,6 +38,7 @@ class PromotionsController extends Controller
         $product = new Products;
         $product->title = $request->input('title');
         $product->description = $request->input('descProd');
+        $product->category = $request->input('category');
         $product->save();
 
         $promotion = new Promotions;
