@@ -71,29 +71,25 @@
             </nav>
             <!-- End Navbar -->
             <div class="content" style="max-height: 82vh;min-height: auto;">
-                <div class="container-fluid">
-                    <div class="input-group">
-                        <input type="text" value="" class="form-control" id="barraBusca" placeholder="Oque você está procurando" style="background: #fff;border-radius: 7px;padding: 3%;box-sizing: border-box;">
+                <div class="col-md-4">
+                    <div class="card card-profile">
+                        <div class="card-avatar">
+                        </div>
+                        <div class="card-body">
+                            <div id="testeImagem" style="
+                            width: 30%;
+                            margin: 40px auto;
+                        "></div>
+                            <h6 class="card-category text-gray" id="nomeMercado"></h6>
+                            <h4 class="card-title" id="nomeProduto"></h4>
+                            <p class="card-description" id="descriptionProduto">
+                                
+                            </p>
+                            <a href="#" class="btn btn-danger btn-round" onclick="setExpired()">Promoção Expirada?</a>
+                            <a href="#" class="btn btn-primary btn-round" onclick="voltar()">Voltar</a>
+                        </div>
                     </div>
                 </div>
-
-                <div id="mainContent" style="display: grid;height: 73vh;overflow: auto;">
-                    <img src="assets/img/loading.gif" style="margin: 15% auto" id="loading" />
-                </div>
-
-
-
-                <button class="btn btn-danger btn-float btn-round btn-fab" style="
-                position: absolute;
-                z-index: 10001;
-                right: 5%;
-                width: 60px;
-                height: 60px;
-                bottom: 10%;
-            " onclick="cadNewOffer()">
-                    <i class="material-icons" style="margin-top: 10px;">add</i>
-                    <div class="ripple-container"></div>
-                </button>
             </div>
             <footer class="footer ">
                 <div class="copyright pull-right">
@@ -126,137 +122,38 @@
 <script src="assets/js/plugins/demo.js"></script>
 <script>
 
-    var promocoesLista
-
-      $("#barraBusca").on('keyup', function () {
-            let busca = new RegExp($("#barraBusca").val(), '');
-            $("#mainContent").html("")
-            promocoesLista.map(prom => {
-                if(prom.product.title.toLowerCase().match(busca)){
-                    console.log(prom)
-                    $('#mainContent').append(`
-                    <div class="container-fluid" onclick="viewDetails(${prom.id})">
-                        <div class="card card-plain">
-                            <div class="card-header card-header-${prom.product.category}">
-                                <h4 class="card-title">${prom.product.title}</h4>
-                                <p class="card-category">${prom.market.title}</p>
-                                <p class="card-category">
-                                    <bold style="color: #fff;font-weight: 500;">R$ ${prom.price}</bold>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    `)
-                }
-            })
-            
-        });
+    var promocoesDetalhes
 
     function logout() {
         localStorage.clear()
         location.href = "index.html"
     }
 
-    function cadNewOffer() {
-        location.href = "cadOffer.html"
+    function voltar(){
+        location.href = "home.html"
     }
 
-    function viewDetails(idPromocao){
-        console.log(idPromocao)
-        promocoesLista.map(prom=> {
-            if(prom.id == idPromocao){
-                localStorage.setItem("promocaoDetalhe", JSON.stringify(prom))
-                location.href="ofertas-detalhes.html"
-            }
-        })
+    function getPromocao() {
+        let promocao = JSON.parse(localStorage.getItem("promocaoDetalhe"))
+        localStorage.removeItem("promocaoDetalhe")
+        promocoesDetalhes = promocao
+        $('#testeImagem').html(`<img style="width:100%" class="img" src="${promocao.market.logo}" />`)
+        $('#nomeMercado').html(promocao.market.title)
+        $('#nomeProduto').html(promocao.product.title)
+        $('#descriptionProduto').html("Promoção: "+promocao.description)
+        $('#descriptionProduto').append("<br/>Produto: "+promocao.product.description)
     }
 
-
-    function listarPromocoes() {
-        $.ajax({
-            type: "GET",
-            cache: false,
-            url: "http://35.196.2.136/api/promotions",
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: function (promotions) {
-                $('#mainContent').css("display", "")
-                $('#loading').css("display", "none")
-                promocoesLista = promotions
-                promotions.map(prom => {
-                    $('#mainContent').append(`
-                    <div class="container-fluid" onclick="viewDetails(${prom.id})">
-                        <div class="card card-plain">
-                            <div class="card-header card-header-${prom.product.category}">
-                                <h4 class="card-title">${prom.product.title}</h4>
-                                <p class="card-category">${prom.market.title}</p>
-                                <p class="card-category">
-                                    <bold style="color: #fff;font-weight: 500;">R$ ${prom.price}</bold>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    `)
-                })
-
-            }
-        })
+    function setExpired(){
+        console.log(promocoesDetalhes.id)
     }
 
 
     $(document).ready(function () {
-        listarPromocoes()
+        getPromocao()
         let user = JSON.parse(localStorage.getItem("user"))
-        $.notify({
-            icon: "person",
-            message: "Bem Vindo " + user.name
-
-        }, {
-                type: 'success',
-                timer: 3000,
-                placement: {
-                    from: 'top',
-                    align: 'center'
-                }
-            });
-
-
-      
+        
     })
 </script>
-<!--
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- -->
 
 </html>
