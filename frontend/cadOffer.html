@@ -32,7 +32,7 @@
         Tip 2: you can also add an image using data-image tag
     -->
             <div class="logo">
-                <a href="#" class="simple-text logo-normal">
+                <a  class="simple-text logo-normal">
                     Easy Market
                 </a>
             </div>
@@ -45,7 +45,7 @@
                         </a>
                     </li>
                     <li class="nav-item active-pro">
-                        <a class="nav-link" href="#" onclick="logout()">
+                        <a class="nav-link"  onclick="logout()">
                             <i class="material-icons">unarchive</i>
                             <p>Sair</p>
                         </a>
@@ -95,11 +95,11 @@
                                     </p>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Mike John responded to your email</a>
-                                    <a class="dropdown-item" href="#">You have 5 new tasks</a>
-                                    <a class="dropdown-item" href="#">You're now friend with Andrew</a>
-                                    <a class="dropdown-item" href="#">Another Notification</a>
-                                    <a class="dropdown-item" href="#">Another One</a>
+                                    <a class="dropdown-item" >Mike John responded to your email</a>
+                                    <a class="dropdown-item" >You have 5 new tasks</a>
+                                    <a class="dropdown-item" >You're now friend with Andrew</a>
+                                    <a class="dropdown-item" >Another Notification</a>
+                                    <a class="dropdown-item" >Another One</a>
                                 </div>
                             </li>
                             <li class="nav-item">
@@ -116,6 +116,9 @@
             </nav>
             <!-- End Navbar -->
             <div class="content">
+                    <div id="mainContent" style="display: none;height: 75vh;overflow: auto;">
+                            <img src="assets/img/loading.gif" style="margin: 15% auto" id="loading"/>
+                        </div>
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-8">
@@ -190,25 +193,25 @@
                                                         <div class="dropdown-menu open" role="combobox">
                                                             <ul class="dropdown-menu inner" role="listbox" aria-expanded="false" id="listaMercados">
                                                                 <li data-original-index="0" onclick="selectOptionCategory('success', 'Verduras')">
-                                                                    <a tabindex="-1" class="" data-tokens="null" role="option" href="#" aria-disabled="true" aria-selected="false">
+                                                                    <a tabindex="-1" class="" data-tokens="null" role="option"  aria-disabled="true" aria-selected="false">
                                                                         <span class="text">Verduras</span>
 
                                                                     </a>
                                                                 </li>
                                                                 <li data-original-index="0" onclick="selectOptionCategory('info', 'Limpeza')">
-                                                                    <a tabindex="-1" class="" data-tokens="null" role="option" href="#" aria-disabled="true" aria-selected="false">
+                                                                    <a tabindex="-1" class="" data-tokens="null" role="option"  aria-disabled="true" aria-selected="false">
                                                                         <span class="text">Limpeza</span>
 
                                                                     </a>
                                                                 </li>
                                                                 <li data-original-index="0" onclick="selectOptionCategory('danger', 'Carnes')">
-                                                                    <a tabindex="-1" class="" data-tokens="null" role="option" href="#" aria-disabled="true" aria-selected="false">
+                                                                    <a tabindex="-1" class="" data-tokens="null" role="option"  aria-disabled="true" aria-selected="false">
                                                                         <span class="text">Carnes</span>
 
                                                                     </a>
                                                                 </li>
                                                                 <li data-original-index="0" onclick="selectOptionCategory('warning', 'Não Pereciveis')">
-                                                                    <a tabindex="-1" class="" data-tokens="null" role="option" href="#" aria-disabled="true" aria-selected="false">
+                                                                    <a tabindex="-1" class="" data-tokens="null" role="option"  aria-disabled="true" aria-selected="false">
                                                                         <span class="text">Não Pereciveis</span>
                                                                     </a>
                                                                 </li>
@@ -306,6 +309,8 @@
 
 
         console.log(objrequest)
+        $('#mainContent').css("display", "none")
+        $('#loading').css("display", "grid")
         $.ajax({
             type: "POST",
             cache: false,
@@ -350,7 +355,7 @@
                 markets.map(mkt => {
                     $('#listaMercados').append(`
                     <li data-original-index="0" onclick="selectOptionMarket(${mkt.id}, '${mkt.title}')">
-                        <a tabindex="-1" class="" data-tokens="null" role="option" href="#"
+                        <a tabindex="-1" class="" data-tokens="null" role="option"
                             aria-disabled="true" aria-selected="false">
                             <span class="text"> ${mkt.title}</span>
                             

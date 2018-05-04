@@ -31,6 +31,9 @@
 
             <!-- End Navbar -->
             <div class="content">
+                    <div id="mainContent" style="display: none;">
+                            <img src="assets/img/loading.gif" style="margin: 15% auto" id="loading"/>
+                    </div>
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-6">
@@ -106,6 +109,8 @@
         if (email == '' || password == '') {
             alert("preencha todos os campos")
         } else {
+            $('#mainContent').css("display", "grid")
+            $('.container-fluid').css("display", "none")
             $.ajax({
                 type: "POST",
                 cache: false,
@@ -117,11 +122,15 @@
                     password: password
                 }),
                 success: function (resp) {
+                    $('#mainContent').css("display", "")
+                    $('#loading').css("display", "none")
                     console.log(resp)
                     localStorage.setItem("user", JSON.stringify(resp));
                     location.href = "home.html"
                 },
                 error: function (err) {
+                    $('.container-fluid').css("display", "")
+                    $('#mainContent').css("display", "none")
                     $.notify({
                         icon: "person",
                         message: "Usuario Não cadastrado"
