@@ -53,12 +53,13 @@
                 </ul>
             </div>
         </div>
+        <img src="assets/img/loading.gif" style="margin: 15% auto; display:none" id="loading" />
         <div class="main-panel" id="mainContent">
             <!-- Navbar -->
-            
-            
-                    <img src="assets/img/loading.gif" style="margin: 15% auto" id="loading"/>
-               
+
+
+            <img src="assets/img/loading.gif" style="margin: 15% auto; display:none" id="loading" />
+
             <nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute fixed-top">
                 <div class="container-fluid">
                     <div class="navbar-wrapper">
@@ -155,7 +156,7 @@
         $.ajax({
             type: "PUT",
             cache: false,
-            url: "http://35.196.2.136/api/promotions/inativar/"+promocoesDetalhes.id,
+            url: "http://35.196.2.136/api/promotions/inativar/" + promocoesDetalhes.id,
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function (promotion) {
@@ -171,8 +172,9 @@
                             align: 'center'
                         }
                     });
+                setInterval(function () { location.href = "home.html"; }, 3000);
 
-             }
+            }
         })
     }
 
