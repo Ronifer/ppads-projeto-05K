@@ -27,6 +27,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->get('markets',  ['uses' => 'MarketsController@showAllMarkets']);
 
     $router->post('promotions',  ['uses' => 'PromotionsController@create']);
+    $router->put('promotions/inativar/{id}',  ['uses' => 'PromotionsController@changeState']);
     $router->get('promotions',  ['uses' => 'PromotionsController@getPromotions']);
 
 

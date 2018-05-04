@@ -19,7 +19,8 @@ class PromotionsController extends Controller
 
     public function getPromotions()
     {
-        $promotions = Promotions::all()->toArray();
+        $promotions = Promotions::where('status', '=', '1')->get()->toArray();
+        // return response()->json($promotions);
         $return = array();
         foreach($promotions as $prom){
             $product = Products::where('id', '=', $prom['product_id'])->firstOrFail();
@@ -51,12 +52,12 @@ class PromotionsController extends Controller
         return response()->json($promotion);
     }
 
-    public function update($id, Request $request)
+    public function changeState($id, Request $request)
     {
-        $User = User::findOrFail($id);
-        $User->update($request->all());
-
-        return response()->json($User, 200);
+        $promotion = Promotions::findOrFail($id);
+        $promotion->status = 0;
+        $promotion->save();
+        return response()->json($promotion, 200);
     }
 
     public function delete($id)
