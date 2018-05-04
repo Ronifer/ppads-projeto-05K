@@ -53,8 +53,12 @@
                 </ul>
             </div>
         </div>
-        <div class="main-panel">
+        <div class="main-panel" id="mainContent">
             <!-- Navbar -->
+            
+            
+                    <img src="assets/img/loading.gif" style="margin: 15% auto" id="loading"/>
+               
             <nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute fixed-top">
                 <div class="container-fluid">
                     <div class="navbar-wrapper">
@@ -83,7 +87,7 @@
                             <h6 class="card-category text-gray" id="nomeMercado"></h6>
                             <h4 class="card-title" id="nomeProduto"></h4>
                             <p class="card-description" id="descriptionProduto">
-                                
+
                             </p>
                             <a href="#" class="btn btn-danger btn-round" onclick="setExpired()">Promoção Expirada?</a>
                             <a href="#" class="btn btn-primary btn-round" onclick="voltar()">Voltar</a>
@@ -129,7 +133,7 @@
         location.href = "index.html"
     }
 
-    function voltar(){
+    function voltar() {
         location.href = "home.html"
     }
 
@@ -140,19 +144,43 @@
         $('#testeImagem').html(`<img style="width:100%" class="img" src="${promocao.market.logo}" />`)
         $('#nomeMercado').html(promocao.market.title)
         $('#nomeProduto').html(promocao.product.title)
-        $('#descriptionProduto').html("Promoção: "+promocao.description)
-        $('#descriptionProduto').append("<br/>Produto: "+promocao.product.description)
+        $('#descriptionProduto').html("Promoção: " + promocao.description)
+        $('#descriptionProduto').append("<br/>Produto: " + promocao.product.description)
     }
 
-    function setExpired(){
+    function setExpired() {
         console.log(promocoesDetalhes.id)
+        $('#mainContent').css("display", "none")
+        $('#loading').css("display", "grid")
+        $.ajax({
+            type: "PUT",
+            cache: false,
+            url: "http://35.196.2.136/api/promotions/inativar/"+promocoesDetalhes.id,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (promotion) {
+                $.notify({
+                    icon: "notifications",
+                    message: "Promoção Inativada com Sucesso, Aguarde..."
+
+                }, {
+                        type: 'success',
+                        timer: 3000,
+                        placement: {
+                            from: 'top',
+                            align: 'center'
+                        }
+                    });
+
+             }
+        })
     }
 
 
     $(document).ready(function () {
         getPromocao()
         let user = JSON.parse(localStorage.getItem("user"))
-        
+
     })
 </script>
 
