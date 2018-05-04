@@ -19,7 +19,7 @@ class PromotionsController extends Controller
 
     public function getPromotions()
     {
-        $promotions = Promotions::where('status', '=', '1')->get()->toArray();
+        $promotions = Promotions::where('status', '=', '1')->orderBy('created_at', 'desc')->get()->toArray();
         // return response()->json($promotions);
         $return = array();
         foreach($promotions as $prom){
