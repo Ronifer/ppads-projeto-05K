@@ -39,9 +39,15 @@
             <div class="sidebar-wrapper">
                 <ul class="nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="../examples/dashboard.html">
+                        <a class="nav-link" href="home.html">
                             <i class="material-icons">dashboard</i>
                             <p>Home</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cad-mercado.html">
+                            <i class="material-icons">add_shopping_cart</i>
+                            <p>Cadastrar Mercados</p>
                         </a>
                     </li>
                     <li class="nav-item active-pro">
@@ -128,13 +134,13 @@
 
     var promocoesLista
 
-      $("#barraBusca").on('keyup', function () {
-            let busca = new RegExp($("#barraBusca").val(), '');
-            $("#mainContent").html("")
-            promocoesLista.map(prom => {
-                if(prom.product.title.toLowerCase().match(busca)){
-                    console.log(prom)
-                    $('#mainContent').append(`
+    $("#barraBusca").on('keyup', function () {
+        let busca = new RegExp($("#barraBusca").val(), '');
+        $("#mainContent").html("")
+        promocoesLista.map(prom => {
+            if (prom.product.title.toLowerCase().match(busca)) {
+                console.log(prom)
+                $('#mainContent').append(`
                     <div class="container-fluid" onclick="viewDetails(${prom.id})">
                         <div class="card card-plain">
                             <div class="card-header card-header-${prom.product.category}">
@@ -147,10 +153,10 @@
                         </div>
                     </div>
                     `)
-                }
-            })
-            
-        });
+            }
+        })
+
+    });
 
     function logout() {
         localStorage.clear()
@@ -158,15 +164,15 @@
     }
 
     function cadNewOffer() {
-        location.href = "cadOffer.html"
+        location.href = "cad-oferta.html"
     }
 
-    function viewDetails(idPromocao){
+    function viewDetails(idPromocao) {
         console.log(idPromocao)
-        promocoesLista.map(prom=> {
-            if(prom.id == idPromocao){
+        promocoesLista.map(prom => {
+            if (prom.id == idPromocao) {
                 localStorage.setItem("promocaoDetalhe", JSON.stringify(prom))
-                location.href="ofertas-detalhes.html"
+                location.href = "ofertas-detalhes.html"
             }
         })
     }
@@ -221,7 +227,7 @@
             });
 
 
-      
+
     })
 </script>
 <!--
