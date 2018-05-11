@@ -17,7 +17,7 @@
     />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
     <link rel="stylesheet" href="assets/css/material-dashboard.css?v=2.0.0">
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzCU9NEUPW3wi0W7On8YRmXfrMfZw5G3I&libraries=places"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEGnhQ8xLUclq-UNFiwBFpzL5iskFgy4c&libraries=places"></script>
     <!-- Documentation extras -->
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="assets/assets-for-demo/demo.css" rel="stylesheet" />
@@ -102,6 +102,8 @@
                         </div>
                     </div>
                 </div>
+                <br/>
+                <a href="#" class="btn btn-primary btn-round" onclick="voltar()" id="voltarMapa" style="display:none">Voltar</a>
             </div>
             
             <footer class="footer ">
@@ -138,7 +140,8 @@
     var promocoesDetalhes
     function viewMapa(){
         $('#map').css("display", "")
-        $('#conteudoCard').css("display", "none")        
+        $('#conteudoCard').css("display", "none")     
+        $("#voltarMapa").css("display","")   
     }
     function logout() {
         localStorage.clear()
