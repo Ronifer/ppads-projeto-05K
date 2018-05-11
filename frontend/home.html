@@ -135,10 +135,10 @@
     var promocoesLista
 
     $("#barraBusca").on('keyup', function () {
-        let busca = new RegExp($("#barraBusca").val(), '');
+        let busca = new RegExp($("#barraBusca").val().toLowerCase(), '');
         $("#mainContent").html("")
         promocoesLista.map(prom => {
-            if (prom.product.title.toLowerCase().match(busca.toLowerCase())) {
+            if (prom.product.title.toLowerCase().match(busca)) {
                 console.log(prom)
                 $('#mainContent').append(`
                     <div class="container-fluid" onclick="viewDetails(${prom.id})">
