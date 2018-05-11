@@ -19,15 +19,14 @@ class MarketsController extends Controller
     //     return response()->json(User::with('role')->findOrFail($id));
     // }
 
-    // public function create(Request $request)
-    // {
-    //     $user = new User;
-    //     $user->name = $request->input('name');
-    //     $user->email = $request->input('email');
-    //     $user->password = app('hash')->make($request->input('password'));
-    //     $user->save();
-    //     return response()->json($user);
-    // }
+    public function create(Request $request)
+    {
+        $market = new Markets;
+        $market->title = $request->input('title');
+        $market->logo = $request->input('logo');
+        $market->save();
+        return response()->json($market);
+    }
 
     // public function update($id, Request $request)
     // {
