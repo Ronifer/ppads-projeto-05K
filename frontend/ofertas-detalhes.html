@@ -78,7 +78,12 @@
             <!-- End Navbar -->
             <div class="content" style="max-height: 82vh;min-height: auto;">
                 <div class="col-md-12">
-                    <div class="card card-profile">
+                        <div id="map" style="display: none; z-index: 2;
+                        width: 100%;
+                        height: 70vh;
+                        padding: 10px;
+                        margin-top: 0;"></div>
+                    <div class="card card-profile" id="conteudoCard">
                         <div class="card-avatar">
                         </div>
                         <div class="card-body">
@@ -93,11 +98,12 @@
                             </p>
                             <a href="#" class="btn btn-danger btn-round" onclick="setExpired()">Promoção Expirada?</a>
                             <a href="#" class="btn btn-primary btn-round" onclick="voltar()">Voltar</a>
+                            <a href="#" class="btn btn-warning btn-round" onclick="viewMapa()">Mapa</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div id="map"></div>
+            
             <footer class="footer ">
                 <div class="copyright pull-right">
                     &copy;
@@ -130,7 +136,10 @@
 <script>
 
     var promocoesDetalhes
-
+    function viewMapa(){
+        $('#map').css("display", "")
+        $('#conteudoCard').css("display", "none")        
+    }
     function logout() {
         localStorage.clear()
         location.href = "index.html"
@@ -211,16 +220,23 @@
             for (var i = 0; i < results.length; i++) {
                 var place = results[i];
                 createMarker(results[i]);
-                console.log(results[i])
+                //console.log(results[i])
             }
         }
     }
     function createMarker(place) {
+        var marcador = {
+          url: 'images/icons/marcador-maps.png',
+          // This marker is 20 pixels wide by 32 pixels high.
+          size: new google.maps.Size(20, 20),
+
+        };
+        
         var placeLoc = place.geometry.location;
         var marker = new google.maps.Marker({
             map: map,
             position: place.geometry.location,
-            icon: place.icon
+            icon: marcador
         });
 
         google.maps.event.addListener(marker, 'click', function () {
