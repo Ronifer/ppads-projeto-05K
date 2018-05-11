@@ -23,6 +23,8 @@
     <link href="assets/assets-for-demo/demo.css" rel="stylesheet" />
     <!-- iframe removal -->
 </head>
+<!-- AIzaSyDYNWiio7Q4NN6mggXslUcTkMawnOg2tII  -->
+<!-- AIzaSyCEGnhQ8xLUclq-UNFiwBFpzL5iskFgy4c -->
 
 <body class="">
     <div class="wrapper">
@@ -78,7 +80,7 @@
             <!-- End Navbar -->
             <div class="content" style="max-height: 82vh;min-height: auto;">
                 <div class="col-md-12">
-                        <div id="map" style="display: none; z-index: 2;
+                    <div id="map" style="display: none; z-index: 2;
                         width: 100%;
                         height: 70vh;
                         padding: 10px;
@@ -105,7 +107,7 @@
                 <br/>
                 <a href="#" class="btn btn-primary btn-round" onclick="voltar()" id="voltarMapa" style="display:none">Voltar</a>
             </div>
-            
+
             <footer class="footer ">
                 <div class="copyright pull-right">
                     &copy;
@@ -136,12 +138,23 @@
 <!-- demo init -->
 <script src="assets/js/plugins/demo.js"></script>
 <script>
+    var lat;
+    var long;
+    function getLocation() {
+
+    }
+    function showPosition(position) {
+        lat = position.coords.latitude
+        long = position.coords.longitude
+        console.log(lat)
+        console.log(long)
+    }
 
     var promocoesDetalhes
-    function viewMapa(){
+    function viewMapa() {
         $('#map').css("display", "")
-        $('#conteudoCard').css("display", "none")     
-        $("#voltarMapa").css("display","")   
+        $('#conteudoCard').css("display", "none")
+        $("#voltarMapa").css("display", "")
     }
     function logout() {
         localStorage.clear()
@@ -199,22 +212,31 @@
     var infowindow;
 
     function initMap() {
-        console.log("entrou")
-        var pyrmont = new google.maps.LatLng(-23.5508861, -46.6555888);
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                console.log("entrou")
+                
+                console.log(position)
+                var pyrmont = new google.maps.LatLng(position.coords.latitude, position.coords.longitud);
 
-        map = new google.maps.Map(document.getElementById('map'), {
-            center: pyrmont,
-            zoom: 15
-        });
+                map = new google.maps.Map(document.getElementById('map'), {
+                    center: pyrmont,
+                    zoom: 15
+                });
 
-        var request = {
-            location: pyrmont,
-            radius: '500',
-            query: promocoesDetalhes.market.title
-        };
-        infowindow = new google.maps.InfoWindow();
-        service = new google.maps.places.PlacesService(map);
-        service.textSearch(request, callback);
+                var request = {
+                    location: pyrmont,
+                    radius: '500',
+                    query: promocoesDetalhes.market.title
+                };
+                infowindow = new google.maps.InfoWindow();
+                service = new google.maps.places.PlacesService(map);
+                service.textSearch(request, callback);
+            });
+        } else {
+            alert("Não foi possivel Obter sua localização")
+        }
+
     }
 
     function callback(results, status) {
@@ -229,12 +251,12 @@
     }
     function createMarker(place) {
         var marcador = {
-          url: 'images/icons/marcador-maps.png',
-          // This marker is 20 pixels wide by 32 pixels high.
-          size: new google.maps.Size(20, 20),
+            url: 'images/icons/marcador-maps.png',
+            // This marker is 20 pixels wide by 32 pixels high.
+            size: new google.maps.Size(20, 20),
 
         };
-        
+
         var placeLoc = place.geometry.location;
         var marker = new google.maps.Marker({
             map: map,
