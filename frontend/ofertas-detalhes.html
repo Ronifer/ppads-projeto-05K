@@ -17,14 +17,12 @@
     />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
     <link rel="stylesheet" href="assets/css/material-dashboard.css?v=2.0.0">
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEGnhQ8xLUclq-UNFiwBFpzL5iskFgy4c&libraries=places"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABm4vLcBSQ0i2Mi8N8cynmlOICmyC4-8s&libraries=places"></script>
     <!-- Documentation extras -->
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="assets/assets-for-demo/demo.css" rel="stylesheet" />
     <!-- iframe removal -->
 </head>
-<!-- AIzaSyDYNWiio7Q4NN6mggXslUcTkMawnOg2tII  -->
-<!-- AIzaSyCEGnhQ8xLUclq-UNFiwBFpzL5iskFgy4c -->
 
 <body class="">
     <div class="wrapper">
@@ -138,17 +136,6 @@
 <!-- demo init -->
 <script src="assets/js/plugins/demo.js"></script>
 <script>
-    var lat;
-    var long;
-    function getLocation() {
-
-    }
-    function showPosition(position) {
-        lat = position.coords.latitude
-        long = position.coords.longitude
-        console.log(lat)
-        console.log(long)
-    }
 
     var promocoesDetalhes
     function viewMapa() {
@@ -212,31 +199,22 @@
     var infowindow;
 
     function initMap() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                console.log("entrou")
-                
-                console.log(position)
-                var pyrmont = new google.maps.LatLng(position.coords.latitude, position.coords.longitud);
+        console.log("entrou")
+        var pyrmont = new google.maps.LatLng(-23.5508861, -46.6555888);
 
-                map = new google.maps.Map(document.getElementById('map'), {
-                    center: pyrmont,
-                    zoom: 15
-                });
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: pyrmont,
+            zoom: 15
+        });
 
-                var request = {
-                    location: pyrmont,
-                    radius: '500',
-                    query: promocoesDetalhes.market.title
-                };
-                infowindow = new google.maps.InfoWindow();
-                service = new google.maps.places.PlacesService(map);
-                service.textSearch(request, callback);
-            });
-        } else {
-            alert("Não foi possivel Obter sua localização")
-        }
-
+        var request = {
+            location: pyrmont,
+            radius: '500',
+            query: promocoesDetalhes.market.title
+        };
+        infowindow = new google.maps.InfoWindow();
+        service = new google.maps.places.PlacesService(map);
+        service.textSearch(request, callback);
     }
 
     function callback(results, status) {
