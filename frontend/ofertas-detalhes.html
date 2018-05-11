@@ -87,10 +87,7 @@
                         <div class="card-avatar">
                         </div>
                         <div class="card-body">
-                            <div id="testeImagem" style="
-                            width: 30%;
-                            margin: 40px auto;
-                        "></div>
+                            <div id="testeImagem" style="width: 30%;margin: 40px auto;"></div>
                             <h6 class="card-category text-gray" id="nomeMercado"></h6>
                             <h4 class="card-title" id="nomeProduto"></h4>
                             <p class="card-description" id="descriptionProduto">
@@ -99,12 +96,32 @@
                             <a href="#" class="btn btn-danger btn-round" onclick="setExpired()">Promoção Expirada?</a>
                             <a href="#" class="btn btn-primary btn-round" onclick="voltar()">Voltar</a>
                             <a href="#" class="btn btn-warning btn-round" onclick="viewMapa()">Mapa</a>
+                            
                         </div>
                     </div>
                 </div>
                 <br/>
                 <a href="#" class="btn btn-primary btn-round" onclick="voltar()" id="voltarMapa" style="display:none">Voltar</a>
             </div>
+            <div class="col-lg-6 col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-warning">
+                            <h4 class="card-title">Mercados Proximos</h4>
+                            <p class="card-category">Que tal dar uma passadinha lá</p>
+                        </div>
+                        <div class="card-body table-responsive">
+                            <table class="table table-hover">
+                                <thead class="text-warning">
+                                    <tr>
+                                    <th>Endereço</th>
+                                    <th>Aberto Agora?</th>
+                                </tr></thead>
+                                <tbody id="mercadosEnderecos">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
 
             <footer class="footer ">
                 <div class="copyright pull-right">
@@ -223,7 +240,13 @@
             for (var i = 0; i < results.length; i++) {
                 var place = results[i];
                 createMarker(results[i]);
-                //console.log(results[i])
+                console.log(results[i])
+                $('#mercadosEnderecos').append(`
+                    <tr>
+                        <td>${results[i].formatted_address}</td>
+                        <td>${results[i].opening_hours.open_now ? "SIM": "NÃO"}</td>                        
+                    </tr>
+                `)
             }
         }
     }
