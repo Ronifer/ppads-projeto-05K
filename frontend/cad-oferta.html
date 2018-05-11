@@ -39,7 +39,7 @@
             <div class="sidebar-wrapper">
                 <ul class="nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="../examples/dashboard.html">
+                        <a class="nav-link" onclick="voltar()">
                             <i class="material-icons">dashboard</i>
                             <p>Home</p>
                         </a>
@@ -280,6 +280,10 @@
     function selectOptionMarket(id, name) {
         $("#labelMarket").html(name)
         localStorage.setItem("opcaoSlecionada", id)
+    }
+
+    function voltar(){
+        location.href = "home.html"  
     }
 
      function selectOptionCategory(id, name) {
