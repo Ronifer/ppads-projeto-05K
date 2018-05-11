@@ -138,7 +138,7 @@
         let busca = new RegExp($("#barraBusca").val(), '');
         $("#mainContent").html("")
         promocoesLista.map(prom => {
-            if (prom.product.title.toLowerCase().match(busca)) {
+            if (prom.product.title.toLowerCase().match(busca.toLowerCase())) {
                 console.log(prom)
                 $('#mainContent').append(`
                     <div class="container-fluid" onclick="viewDetails(${prom.id})">
