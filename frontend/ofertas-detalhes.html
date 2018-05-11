@@ -17,6 +17,7 @@
     />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
     <link rel="stylesheet" href="assets/css/material-dashboard.css?v=2.0.0">
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzCU9NEUPW3wi0W7On8YRmXfrMfZw5G3I&libraries=places"></script>
     <!-- Documentation extras -->
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="assets/assets-for-demo/demo.css" rel="stylesheet" />
@@ -63,7 +64,7 @@
             <nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute fixed-top">
                 <div class="container-fluid">
                     <div class="navbar-wrapper">
-                        <a class="navbar-brand" href="#pablo">Principais Ofertas</a>
+                        <a class="navbar-brand" href="#pablo" id="tituloPagina">Oferta</a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -96,6 +97,7 @@
                     </div>
                 </div>
             </div>
+            <div id="map"></div>
             <footer class="footer ">
                 <div class="copyright pull-right">
                     &copy;
@@ -142,9 +144,11 @@
         let promocao = JSON.parse(localStorage.getItem("promocaoDetalhe"))
         localStorage.removeItem("promocaoDetalhe")
         promocoesDetalhes = promocao
+        initMap()
         $('#testeImagem').html(`<img style="width:100%" class="img" src="${promocao.market.logo}" />`)
         $('#nomeMercado').html(promocao.market.title)
         $('#nomeProduto').html(promocao.product.title)
+        $('#tituloPagina').html(promocao.product.title)
         $('#descriptionProduto').html("Promoção: " + promocao.description)
         $('#descriptionProduto').append("<br/>Produto: " + promocao.product.description)
     }
@@ -177,6 +181,55 @@
             }
         })
     }
+
+    var map;
+    var service;
+    var infowindow;
+
+    function initMap() {
+        console.log("entrou")
+        var pyrmont = new google.maps.LatLng(-23.5508861, -46.6555888);
+
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: pyrmont,
+            zoom: 15
+        });
+
+        var request = {
+            location: pyrmont,
+            radius: '500',
+            query: promocoesDetalhes.market.title
+        };
+        infowindow = new google.maps.InfoWindow();
+        service = new google.maps.places.PlacesService(map);
+        service.textSearch(request, callback);
+    }
+
+    function callback(results, status) {
+        console.log("callback")
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+            for (var i = 0; i < results.length; i++) {
+                var place = results[i];
+                createMarker(results[i]);
+                console.log(results[i])
+            }
+        }
+    }
+    function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+            map: map,
+            position: place.geometry.location,
+            icon: place.icon
+        });
+
+        google.maps.event.addListener(marker, 'click', function () {
+            infowindow.setContent(place.name);
+            infowindow.open(map, this);
+        });
+    }
+
+
 
 
     $(document).ready(function () {
