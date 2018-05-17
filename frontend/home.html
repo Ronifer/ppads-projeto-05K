@@ -214,6 +214,7 @@
         listarPromocoes()
         let user = JSON.parse(localStorage.getItem("user"))
         if(user.is_admin == 1){
+            console.log("admins")
             $('#menuPrincipal').append(`
                     <li class="nav-item">
                                 <a class="nav-link" href="bloq-users.html">

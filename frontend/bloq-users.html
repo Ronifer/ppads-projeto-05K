@@ -148,11 +148,19 @@
             dataType: "json",
             success: function (users) {
                 users.map(user => {
-                    $("#mercadosEnderecos").append(`
+                    console.log(user)
+                    if (user.status == 0) {
+                        console.log(user)
+                    } else {
+                        $("#mercadosEnderecos").append(`
+                    <tr>
                     <td>${user.name}</td>
                     <td>${user.email}</td>
                     <td><a href="#" class="col-md-12 btn btn-danger btn-round" onclick="setInative(${user.id})">Bloquear</a></td>
+                    </tr>
                 `)
+                    }
+
                 })
             }
         })
@@ -169,6 +177,7 @@
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function (promotion) {
+                console.log(promotion)
                 $.notify({
                     icon: "notifications",
                     message: "Usuario Bloqueado"
