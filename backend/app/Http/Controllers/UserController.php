@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Models\User;
+use App\Http\Models\Promotions;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
@@ -17,6 +18,18 @@ class UserController extends Controller
     public function showOneUser($id)
     {
         return response()->json(User::with('role')->findOrFail($id));
+    }
+
+    public function inative($id, Request $request)
+    {
+        $user = User::findOrFail($id);
+        $user->status = 0;
+        $user->save();
+        $promotionsUser = Promotions::where("created_by", "=", $user->id)->get()->toArray();
+        foreach($promotionsUser as $prom) {
+            app('App\Http\Controllers\PromotionsController')->changeStateByInative($prom['id']);
+        }
+        return response()->json($user, 200);
     }
 
     public function create(Request $request)

@@ -60,6 +60,14 @@ class PromotionsController extends Controller
         return response()->json($promotion, 200);
     }
 
+    public function changeStateByInative($id)
+    {
+        $promotion = Promotions::findOrFail($id);
+        $promotion->status = 0;
+        $promotion->save();
+        return response()->json($promotion, 200);
+    }
+
     public function delete($id)
     {
         User::findOrFail($id)->delete();
