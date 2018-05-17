@@ -10,3 +10,6 @@ Os componentes estão organizados em RestAPI, separamos no diagrama em funcional
 
 ## Busca Promoções
 ![](busca_promocoes.png)
+
+## Cadastra Promoções
+![](cadastra_promocoes.png)
