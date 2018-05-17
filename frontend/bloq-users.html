@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="manifest" href="/manifest.json">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="images/icons/apple-icon.png">
+    <link rel="icon" href="images/icons/favicon.png">
+    <title>
+        Easy Market
+    </title>
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"
+    />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/css/material-dashboard.css?v=2.0.0">
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABm4vLcBSQ0i2Mi8N8cynmlOICmyC4-8s&libraries=places"></script>
+    <!-- Documentation extras -->
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="assets/assets-for-demo/demo.css" rel="stylesheet" />
+    <!-- iframe removal -->
+</head>
+
+<body class="">
+    <div class="wrapper">
+        <div class="sidebar" data-color="purple" data-background-color="white" data-image="assets/img/sidebar-1.jpg">
+            <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+            <div class="logo">
+                <a href="#" class="simple-text logo-normal">
+                    Easy Market
+                </a>
+            </div>
+            <div class="sidebar-wrapper">
+                <ul class="nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../examples/dashboard.html">
+                            <i class="material-icons">dashboard</i>
+                            <p>Home</p>
+                        </a>
+                    </li>
+                    <li class="nav-item active-pro">
+                        <a class="nav-link" href="#" onclick="logout()">
+                            <i class="material-icons">unarchive</i>
+                            <p>Sair</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <img src="assets/img/loading.gif" style="margin: 15% auto; display:none" id="loading" />
+        <div class="main-panel" id="mainContent">
+            <!-- Navbar -->
+
+
+            <img src="assets/img/loading.gif" style="margin: 15% auto; display:none" id="loading" />
+
+            <nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-wrapper">
+                        <a class="navbar-brand" href="#pablo" id="tituloPagina">Gerenciar Usuarios</a>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                    </button>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+            <div class="col-lg-6 col-md-12" style="margin-top: 15%">
+                <div class="card">
+                    <div class="card-header card-header-warning">
+                        <h4 class="card-title">Lista de Usuarios</h4>
+                        <p class="card-category">Torne administrador ou bloqueie acesso</p>
+                    </div>
+                    <div class="card-body table-responsive">
+                        <table class="table table-hover">
+                            <thead class="text-warning">
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Email</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="mercadosEnderecos">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="footer ">
+                <div class="copyright pull-right">
+                    &copy;
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script> Easy Market
+                </div>
+        </div>
+        </footer>
+    </div>
+    </div>
+
+
+</body>
+<!--   Core JS Files   -->
+<script src="assets/js/core/jquery.min.js"></script>
+<script src="assets/js/core/popper.min.js"></script>
+<script src="assets/js/bootstrap-material-design.js"></script>
+<script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+<!--  Charts Plugin, full documentation here: https://gionkunz.github.io/chartist-js/ -->
+<script src="assets/js/plugins/chartist.min.js"></script>
+<!-- Library for adding dinamically elements -->
+<script src="assets/js/plugins/arrive.min.js" type="text/javascript"></script>
+<!--  Notifications Plugin, full documentation here: http://bootstrap-notify.remabledesigns.com/    -->
+<script src="assets/js/plugins/bootstrap-notify.js"></script>
+<!-- Material Dashboard Core initialisations of plugins and Bootstrap Material Design Library -->
+<script src="assets/js/material-dashboard.js?v=2.0.0"></script>
+<!-- demo init -->
+<script src="assets/js/plugins/demo.js"></script>
+<script>
+    var user = JSON.parse(localStorage.getItem("user"))
+
+    function logout() {
+        localStorage.clear()
+        location.href = "index.html"
+    }
+
+    function voltar() {
+        location.href = "home.html"
+    }
+
+    getUsers(){
+        $.ajax({
+            type: "GET",
+            cache: false,
+            url: "http://35.196.2.136/api/users",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (users) {
+                users.map(user => {
+                    $("#mercadosEnderecos").append(`
+                    <td>${user.name}</td>
+                    <td>${user.email}</td>
+                    <td><a href="#" class="col-md-12 btn btn-danger btn-round" onclick="setInative(${user.id})">Bloquear</a></td>
+                `)
+                })
+            }
+        })
+    }
+
+
+    function setInative(id_user) {
+        $('#mainContent').css("display", "none")
+        $('#loading').css("display", "grid")
+        $.ajax({
+            type: "PUT",
+            cache: false,
+            url: "http://35.196.2.136/api/users/inative/" + id_user,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (promotion) {
+                $.notify({
+                    icon: "notifications",
+                    message: "Usuario Bloqueado"
+
+                }, {
+                        type: 'success',
+                        timer: 3000,
+                        placement: {
+                            from: 'top',
+                            align: 'center'
+                        }
+                    });
+
+                $('#mainContent').css("display", "")
+                $('#loading').css("display", "none")
+            }
+        })
+    }
+
+
+
+
+
+    $(document).ready(function () {
+        getUsers()
+
+
+    })
+</script>
+
+</html>

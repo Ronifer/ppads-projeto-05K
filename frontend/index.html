@@ -125,6 +125,8 @@
                     $('#mainContent').css("display", "")
                     $('#loading').css("display", "none")
                     if(resp.status ==0){
+                        $('.container-fluid').css("display", "none")
+                        $('#mainContent').css("display", "")
                         $.notify({
                         icon: "person",
                         message: "Usuario Bloqueado"
