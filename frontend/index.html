@@ -124,9 +124,27 @@
                 success: function (resp) {
                     $('#mainContent').css("display", "")
                     $('#loading').css("display", "none")
+                    if(resp.status ==0){
+                        $.notify({
+                        icon: "person",
+                        message: "Usuario Bloqueado"
+
+                    }, {
+                            type: 'danger',
+                            timer: 3000,
+                            placement: {
+                                from: 'top',
+                                align: 'center'
+                            }
+                        });
+                        $("#email").val("")
+                        $("#password").val("")
+                    }else{
                     console.log(resp)
                     localStorage.setItem("user", JSON.stringify(resp));
                     location.href = "home.html"
+                    }
+                    
                 },
                 error: function (err) {
                     $('.container-fluid').css("display", "")
