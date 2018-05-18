@@ -137,15 +137,19 @@
 | 3) O sistema apresenta mais detalhes da oferta. |
 | 4) O sistema apresenta uma lista de mercados proximos que possuem a oferta |
 |---|
+
 | Fluxo Alternativo (1): O usuario deseja inativar a oferta. |
+|---|
 | 1) O usuario realiza o login no sitema. |
 | 2) O usuario seleciona a oferta desejada.|
 | 3) O sistema apresenta mais detalhes da oferta. |
 | 4) O sistema apresenta uma lista de mercados proximos que possuem a oferta |
 | 5) O usuario clica para inativar a oferta |
 | 6) O sistema apresenta uma mensagem de produto inativo com sucesso |
-|---|
+
+
 | Fluxo Alternativo (2): O usuario deseja ver no mapa os mercados mais proximos. |
+|---|
 | 1) O usuario realiza o login no sitema. |
 | 2) O usuario seleciona a oferta desejada.|
 | 3) O sistema apresenta mais detalhes da oferta. |
@@ -173,15 +177,17 @@
 | 3) O sistema apresenta uma lista de usuarios com botões de ação. |
 | 4) O usuario seleciona para bloquear um usuario |
 | 5) O sistema apresenta uma ensagem de usuario bloqueado com sucesso |
-|---|
+
 | Fluxo Alternativo (1): O usuario deseja Desbloquear um usuario. |
+|---|
 | 1) O usuario realiza o login no sitema. |
 | 2) O usuario seleciona  opção de adminsitração no sitema.|
 | 3) O sistema apresenta uma lista de usuarios com botões de ação. |
 | 4) O usuario seleciona para desbloquear um usuario |
 | 5) O sistema redireciona o usuario para a home|
-|---|
+
 | Fluxo Alternativo (2): O usuario deseja Tornar Administrador um usuario. |
+|---|
 | 1) O usuario realiza o login no sitema. |
 | 2) O usuario seleciona  opção de adminsitração no sitema.|
 | 3) O sistema apresenta uma lista de usuarios com botões de ação. |
