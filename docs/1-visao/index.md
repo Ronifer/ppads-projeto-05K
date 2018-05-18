@@ -40,17 +40,18 @@ esperadas do sistema.
 ## Funcionalidades do produto
 
 * Busca de Produtos
-* Filtros para ordenação
+* Categorização de produtos por cor
 * Cadastro de usuario
 * Cadastro de ofertas
-* Feedback das ofertas
-* Geolocalização (para identificar os mercados mais proximos)
-* Login com redes Sociais (Facebook, Twitter, Google)
+* Feedback das ofertas (caso a oferta esteja vencida)
+* Geolocalização (para identificar os mercados mais proximos e se estão abertos)
+* Cadastro de Mercados
+* Area adminsitrativa para bloquear, desbloquear, ou tornar administrador um Usuario
 
 
 ## Restrições do projeto
 
-* O Aplicativo será exclusivo para plataformas mobile (IOS e Android)
+* O Aplicativo poderá ser executado em qualquer navegador e com suporte a PWA (IOS e Android)
 * Será Necessario um cadastro de usuario
 * Acesso a Internet
 
