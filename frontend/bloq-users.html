@@ -150,14 +150,22 @@
                 users.map(user => {
                     console.log(user)
                     if (user.status == 0) {
-                        console.log(user)
+                        $("#mercadosEnderecos").append(`
+                        <tr>
+                        <td>${user.name}</td>
+                        <td>${user.email}</td>
+                        <td><a href="#" class="col-md-12 btn btn-success btn-round" onclick="setActive(${user.id})">Desbloquear</a></td>
+                        </tr>
+                        `)
                     } else {
                         $("#mercadosEnderecos").append(`
-                    <tr>
-                    <td>${user.name}</td>
-                    <td>${user.email}</td>
-                    <td><a href="#" class="col-md-12 btn btn-danger btn-round" onclick="setInative(${user.id})">Bloquear</a></td>
-                    </tr>
+                        <tr>
+                        <td>${user.name}</td>
+                        <td>${user.email}</td>
+                        <td><a href="#" class="col-md-12 btn btn-danger btn-round" onclick="setInative(${user.id})">Bloquear</a>
+                            ${user.is_admin == 1 ? "" :`<a href="#" class="col-md-12 btn btn-success btn-round" onclick="setAdmin(${user.id})">ADministrador</a>`}
+                        </td>
+                        </tr>
                 `)
                     }
 
@@ -191,8 +199,64 @@
                         }
                     });
 
-                $('#mainContent').css("display", "")
-                $('#loading').css("display", "none")
+                location.href = "bloq-users.html"
+            }
+        })
+    }
+    function setActive(id_user) {
+        $('#mainContent').css("display", "none")
+        $('#loading').css("display", "grid")
+        $.ajax({
+            type: "PUT",
+            cache: false,
+            url: "http://35.196.2.136/api/users/active/" + id_user,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (promotion) {
+                console.log(promotion)
+                $.notify({
+                    icon: "notifications",
+                    message: "Usuario Desbloqueado"
+
+                }, {
+                        type: 'success',
+                        timer: 3000,
+                        placement: {
+                            from: 'top',
+                            align: 'center'
+                        }
+                    });
+
+                location.href = "bloq-users.html"
+            }
+        })
+    }
+
+    function setAdmin(id_user) {
+        $('#mainContent').css("display", "none")
+        $('#loading').css("display", "grid")
+        $.ajax({
+            type: "PUT",
+            cache: false,
+            url: "http://35.196.2.136/api/users/admin/" + id_user,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (promotion) {
+                console.log(promotion)
+                $.notify({
+                    icon: "notifications",
+                    message: "Usuario Ágora é um Admin"
+
+                }, {
+                        type: 'success',
+                        timer: 3000,
+                        placement: {
+                            from: 'top',
+                            align: 'center'
+                        }
+                    });
+
+                location.href = "bloq-users.html"
             }
         })
     }

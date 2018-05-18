@@ -38,24 +38,7 @@
             </div>
             <div class="sidebar-wrapper">
                 <ul class="nav" id="menuPrincipal">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="home.html">
-                            <i class="material-icons">dashboard</i>
-                            <p>Home</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="cad-mercado.html">
-                            <i class="material-icons">add_shopping_cart</i>
-                            <p>Cadastrar Mercados</p>
-                        </a>
-                    </li>
-                    <li class="nav-item active-pro">
-                        <a class="nav-link" href="#" onclick="logout()">
-                            <i class="material-icons">unarchive</i>
-                            <p>Sair</p>
-                        </a>
-                    </li>
+                    
                 </ul>
             </div>
         </div>
@@ -216,12 +199,53 @@
         if(user.is_admin == 1){
             console.log("admins")
             $('#menuPrincipal').append(`
+                <li class="nav-item active">
+                        <a class="nav-link" href="home.html">
+                            <i class="material-icons">dashboard</i>
+                            <p>Home</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cad-mercado.html">
+                            <i class="material-icons">add_shopping_cart</i>
+                            <p>Cadastrar Mercados</p>
+                        </a>
+                    </li>
                     <li class="nav-item">
                                 <a class="nav-link" href="bloq-users.html">
-                                    <i class="material-icons">person_add_disabled</i>
-                                    <p>Bloquear Usuarios</p>
+                                    <i class="material-icons">build</i>
+                                    <p>Adminstrar</p>
                                 </a>
+                        </li>
+                    <li class="nav-item active-pro">
+                        <a class="nav-link" href="#" onclick="logout()">
+                            <i class="material-icons">unarchive</i>
+                            <p>Sair</p>
+                        </a>
                     </li>
+                    
+                    `)
+        }else{
+            $('#menuPrincipal').append(`
+                <li class="nav-item active">
+                        <a class="nav-link" href="home.html">
+                            <i class="material-icons">dashboard</i>
+                            <p>Home</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cad-mercado.html">
+                            <i class="material-icons">add_shopping_cart</i>
+                            <p>Cadastrar Mercados</p>
+                        </a>
+                    </li>
+                    <li class="nav-item active-pro">
+                        <a class="nav-link" href="#" onclick="logout()">
+                            <i class="material-icons">unarchive</i>
+                            <p>Sair</p>
+                        </a>
+                    </li>
+                    
                     `)
         }
         $.notify({
