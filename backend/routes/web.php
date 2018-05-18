@@ -22,7 +22,9 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->post('users', ['uses' => 'UserController@create']);
     $router->post('users/auth', ['uses' => 'UserController@authenticate']);
     $router->delete('users/{id}', ['uses' => 'UserController@delete']);
-    $router->put('users/inative/{id}', ['uses' => 'UserController@inative']);  
+    $router->put('users/inative/{id}', ['uses' => 'UserController@inative']);
+    $router->put('users/active/{id}', ['uses' => 'UserController@active']);
+    $router->put('users/admin/{id}', ['uses' => 'UserController@setAdmin']);   
     
     $router->get('markets',  ['uses' => 'MarketsController@showAllMarkets']);
     $router->post('markets',  ['uses' => 'MarketsController@create']);

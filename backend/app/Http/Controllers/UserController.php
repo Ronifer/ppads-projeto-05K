@@ -32,6 +32,22 @@ class UserController extends Controller
         return response()->json($user, 200);
     }
 
+    public function active($id, Request $request)
+    {
+        $user = User::findOrFail($id);
+        $user->status = 1;
+        $user->save();
+        return response()->json($user, 200);
+    }
+
+    public function setAdmin($id, Request $request)
+    {
+        $user = User::findOrFail($id);
+        $user->is_admin = 1;
+        $user->save();
+        return response()->json($user, 200);
+    }
+
     public function create(Request $request)
     {
         $user = new User;
