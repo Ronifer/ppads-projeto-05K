@@ -141,6 +141,8 @@
                         });
                         $("#email").val("")
                         $("#password").val("")
+                        $('#mainContent').css("display", "none")
+                        $('.container-fluid').css("display", "")
                     }else{
                     console.log(resp)
                     localStorage.setItem("user", JSON.stringify(resp));
