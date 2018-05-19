@@ -193,3 +193,23 @@
 | 3) O sistema apresenta uma lista de usuarios com botões de ação. |
 | 4) O usuario seleciona para tornar administrador um usuario |
 | 5) O sistema redireciona o usuario para a home|
+
+**Registre-se**
+
+![Use Case Registro do Usuario](registro.png)
+
+### 2.6. Caso de uso **Registrar-se**
+
+| Campo          | Informação        |
+|---|---|
+| Identificador: | UC07             |
+| Nome:          | Registrar-se na Plataforma |
+| Atores:        | Usuarios |
+| Sumário:       | Registrar-se no sistema |
+
+| Fluxo Principal |
+|---|
+| 1) o Usuario selciona a opção de registre-se. |
+| 2) O usuario preenche os campos de registro.|
+| 5) O sistema apresenta uma mensagem de usuario cadastrado com sucesso |
+| 5) O sistema redireciona o usuario para a Home |
