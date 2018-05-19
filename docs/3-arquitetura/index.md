@@ -1,6 +1,6 @@
 # Modelo de Arquitetura
 
-## Organização em camadas
+### Descrição
 
 * Para o front-end utilizamos um SPA com ajax consultando as API's do sistema e renderizando os conteudos necessarios. Para versões mobiles, criamos um manifest.json transformando a pagina em PWA (podendo ser salva como aplicativo nos smartphones).
 * Para o Back-end criamos uma estrutura de REST API em Lumen (laravel) que consulta nossa base de daos e responde JSON para o front-end
