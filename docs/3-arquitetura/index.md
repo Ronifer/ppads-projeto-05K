@@ -12,6 +12,7 @@
 
 * Utilizamos o Google Cloud SQL para hospedar o banco de dados MySQL.
 
+## Diagrama
 
 ![](implantacao.png)
 
