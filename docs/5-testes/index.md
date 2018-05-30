@@ -40,15 +40,15 @@
 | --- | --- | --- |
 | 1 | Logar no sistema. | Apresentação da tela inicial no sistema com a lista de ofertas buscadas |
 | 2 | Clikar no link do canto inferior direito **+**. | Apresentação do painel de Cadastro de Ofertas | 
-| 3 | Preencher os campos do formulário: | Apresentação da tela inicial no sistema com a lista de |
-||  1- Nome - *Achocolatado* | ofertas atualizada com *Achocolatado* |
+| 3 | Preencher os campos do formulário: | Apresentação da tela inicial no sistema com a lista de ofertas atualizada com *Achocolatado* |
+||  1- Nome - *Achocolatado* ||
 ||  2- Preço - *2.90* ||
 ||  3- Descrição do Produto - *Nescau, 350g* ||
 ||  4- Descriao da Oferta - *Leve 3 pague 2* ||
 ||  5- Mercado - Selecione a opção ***Extra*** ||
 ||  6- Categoria - Selecione a opção ***Não perecíveis*** ||
 ||  e clikar no link **CADASTAR** para efetuar um cadastro. ||
-| 4 | Verificar item cadastrado na lista de ofertas |  |
+| 4 | Verificar item cadastrado na lista de ofertas ||
 
 **Nome do caso de uso:** Busca de Ofertas
 
@@ -63,24 +63,24 @@
 | --- | --- | --- |
 | 1 | Logar no sistema. | Apresentação da tela inicial no sistema com a lista de ofertas buscadas |
 | 2 | Clikar no link do canto inferior direito **+**. | Apresentação do painel de Cadastro de Ofertas | 
-| 3 | Preencher os campos do formulário: | Apresentação da tela inicial no sistema com a lista de |
-||  1- Nome - *Achocolatado* | ofertas atualizada com *Achocolatado* |
+| 3 | Preencher os campos do formulário: | Apresentação da tela inicial no sistema com a lista de ofertas atualizada com *Achocolatado* |
+||  1- Nome - *Achocolatado* ||
 ||  2- Preço - *2.90* ||
 ||  3- Descrição do Produto - *Nescau, 350g* ||
 ||  4- Descriao da Oferta - *Leve 3 pague 2* ||
 ||  5- Mercado - Selecione a opção ***Extra*** ||
 ||  6- Categoria - Selecione a opção ***Não perecíveis*** ||
 ||  e clikar no link **CADASTAR** para efetuar um cadastro. ||
-| 4 | Preencher os campos do formulário: | Apresentação da tela inicial no sistema com a lista de |
-||  1- Nome - *Refigerante* | ofertas atualizada com *Refigerante* |
+| 4 | Preencher os campos do formulário: | Apresentação da tela inicial no sistema com a lista de ofertas atualizada com *Refigerante* |
+||  1- Nome - *Refigerante* ||
 ||  2- Preço - *4.90* ||
 ||  3- Descrição do Produto - *Coca-Cola, 3L* ||
 ||  4- Descriao da Oferta - *No Cartão Carrefour* ||
 ||  5- Mercado - Selecione a opção ***Carrefour*** ||
 ||  6- Categoria - Selecione a opção ***Não perecíveis*** ||
 ||  e clikar no link **CADASTAR** para efetuar um cadastro. ||
-| 5 | Preencher os campos do formulário: | Apresentação da tela inicial no sistema com a lista de |
-||  1- Nome - *Cenouras* | ofertas atualizada com *Cenouras* |
+| 5 | Preencher os campos do formulário: | Apresentação da tela inicial no sistema com a lista de ofertas atualizada com *Cenouras* |
+||  1- Nome - *Cenouras* ||
 ||  2- Preço - *2.69* ||
 ||  3- Descrição do Produto - *Cenouras, 1Kg* ||
 ||  4- Descriao da Oferta - *Sem descrição* ||
