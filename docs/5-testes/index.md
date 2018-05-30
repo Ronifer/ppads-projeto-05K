@@ -27,19 +27,6 @@
 | 1 | Executar o navegador e acesse a URL http://35.237.61.61/ | Apresentação da tela de login do sistema |
 | 2 | Preencher os campos **E-Mail**, **Senha** e clikar no link de **Logar**. | Apresentação da tela inicial no sistema |
 
-**Nome do caso de uso:** Busca de Ofertas
-
-**Preparação:**
-
-* Criar no sistema um usuário.
-* Logar no sistema um usuário registrado.
-
-**Procedimento de teste:**
-
-| Passo | Procedimento | Resultado esperado |
-| --- | --- | --- |
-| 1 | Logar no sistema. | Apresentação da tela inicial no sistema com a lista de ofertas buscadas |
-
 **Nome do caso de uso:** Cadastro de Ofertas
 
 **Preparação:**
@@ -53,7 +40,54 @@
 | --- | --- | --- |
 | 1 | Logar no sistema. | Apresentação da tela inicial no sistema com a lista de ofertas buscadas |
 | 2 | Clikar no link do canto inferior direito **+**. | Apresentação do painel de Cadastro de Ofertas | 
-| 3 | Preencher os campos do formulário e clikar no link **CADASTAR**. | Apresentação da tela inicial no sistema com a lista de ofertas atualizadas |
+| 3 | Preencher os campos do formulário: | Apresentação da tela inicial no sistema com a lista de |
+||  1- Nome - *Achocolatado* | ofertas atualizada com *Achocolatado* |
+||  2- Preço - *2.90* ||
+||  3- Descrição do Produto - *Nescau, 350g* ||
+||  4- Descriao da Oferta - *Leve 3 pague 2* ||
+||  5- Mercado - Selecione a opção ***Extra*** ||
+||  6- Categoria - Selecione a opção ***Não perecíveis*** ||
+||  e clikar no link **CADASTAR** para efetuar um cadastro. ||
+| 4 | Verificar item cadastrado na lista de ofertas |  |
+
+**Nome do caso de uso:** Busca de Ofertas
+
+**Preparação:**
+
+* Criar no sistema um usuário.
+* Logar no sistema um usuário registrado.
+
+**Procedimento de teste:**
+
+| Passo | Procedimento | Resultado esperado |
+| --- | --- | --- |
+| 1 | Logar no sistema. | Apresentação da tela inicial no sistema com a lista de ofertas buscadas |
+| 2 | Clikar no link do canto inferior direito **+**. | Apresentação do painel de Cadastro de Ofertas | 
+| 3 | Preencher os campos do formulário: | Apresentação da tela inicial no sistema com a lista de |
+||  1- Nome - *Achocolatado* | ofertas atualizada com *Achocolatado* |
+||  2- Preço - *2.90* ||
+||  3- Descrição do Produto - *Nescau, 350g* ||
+||  4- Descriao da Oferta - *Leve 3 pague 2* ||
+||  5- Mercado - Selecione a opção ***Extra*** ||
+||  6- Categoria - Selecione a opção ***Não perecíveis*** ||
+||  e clikar no link **CADASTAR** para efetuar um cadastro. ||
+| 4 | Preencher os campos do formulário: | Apresentação da tela inicial no sistema com a lista de |
+||  1- Nome - *Refigerante* | ofertas atualizada com *Refigerante* |
+||  2- Preço - *4.90* ||
+||  3- Descrição do Produto - *Coca-Cola, 3L* ||
+||  4- Descriao da Oferta - *No Cartão Carrefour* ||
+||  5- Mercado - Selecione a opção ***Carrefour*** ||
+||  6- Categoria - Selecione a opção ***Não perecíveis*** ||
+||  e clikar no link **CADASTAR** para efetuar um cadastro. ||
+| 5 | Preencher os campos do formulário: | Apresentação da tela inicial no sistema com a lista de |
+||  1- Nome - *Cenouras* | ofertas atualizada com *Cenouras* |
+||  2- Preço - *2.69* ||
+||  3- Descrição do Produto - *Cenouras, 1Kg* ||
+||  4- Descriao da Oferta - *Sem descrição* ||
+||  5- Mercado - Selecione a opção ***Assai*** ||
+||  6- Categoria - Selecione a opção ***Verduras*** ||
+||  e clikar no link **CADASTAR** para efetuar um cadastro. ||
+| 6 | Verificar itens Achocolatado, Refrigerante e Cenouras, cadastrados na lista de ofertas ||
 
 **Nome do caso de uso:** Cadastro de Mercados
 
